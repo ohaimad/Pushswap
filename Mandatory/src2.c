@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:53:58 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/20 23:05:34 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/20 23:21:41 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,4 @@ int	check_signe (char **num)
 	}
 	check_space(num);
 	return(0);
-}
-
-void	check_error(t_data *data)
-{
-	if(data->stack_a)
-		ft_lstclear(&data->stack_a);
-	free(data->list);
 }

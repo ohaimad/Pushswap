@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/20 23:06:26 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/20 23:25:39 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ struct s_split
 
 typedef struct s_data
 {
+	int len;
 	t_list	*stack_a;
 	char **list;
 } t_data;
@@ -57,5 +58,5 @@ int		check_signe (char **num);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstnew(int content, int position);
 void	ft_lstclear(t_list **lst);
-void	check_error(t_data *data);
+void	freeall(char **s, int len);
 

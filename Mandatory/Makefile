@@ -1,6 +1,7 @@
 NAME = push_swap
 
-CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = 
 
 SRCS = libft.c main.c libft2.c src1.c src2.c \
 
