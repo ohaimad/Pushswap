@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/17 20:47:20 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/20 23:06:26 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 # include <stdlib.h>
 # include <ctype.h>
 # include <fcntl.h>
+
+typedef struct s_list
+{
+	int	content;
+	struct s_list	*next;
+	int		position;
+}	t_list;
 
 struct s_split
 {
@@ -28,15 +35,27 @@ struct s_split
 	int			line;
 };
 
-// static	void	freeall(char **s, int len);
+typedef struct s_data
+{
+	t_list	*stack_a;
+	char **list;
+} t_data;
+
+
+
+
 int		ft_strlen(char const *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 char	*ft_strcpy(char *dst, char *src);
 int		ft_len (int s, char **str, int space);
 int	check_av(char **string);
 char	*ft_strjoin(int size, char **string, char *arg);
-// static int	nbrofwords(char const *s, char c);
-// static	char	**added(struct s_split *z);
 char	**ft_split(char const *s, char c);
+long long	ft_atoi(char *str, t_data *data);
 void	ft_exit(void);
-void	check_signe (char **num);
+int		check_signe (char **num);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+t_list	*ft_lstnew(int content, int position);
+void	ft_lstclear(t_list **lst);
+void	check_error(t_data *data);
+
