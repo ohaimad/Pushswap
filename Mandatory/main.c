@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:09:00 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/21 20:00:23 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/23 23:33:01 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,22 @@ int main(int ac, char **av)
 		check_signe(data.list);
 		while(data.list[i])
 		{
-			ft_lstadd_back(&data.stack_a, ft_lstnew(ft_atoi(data.list[i], &data), i));
-			printf("%s\n", data.list[i]);
+			ft_lstadd_back(&data.stack_a, ft_lstnew(ft_atoi(data.list[i], &data), -1));
 			i++;
 		}
 		check_order(data.stack_a);
+		data.stack_a = ft_index(&data);
+		// ft_swap(&data.stack_a, 0);
+		
+		
+		while (data.stack_a)
+		{
+			printf("%d\n", data.stack_a->position);
+			data.stack_a = data.stack_a->next;
+		}
 		freeall(data.list, data.len);
 		ft_lstclear(&data.stack_a);
+		
 	}
 	else
 		ft_exit();
