@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:28:37 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/20 23:36:56 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/21 19:59:03 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,27 +61,28 @@ char	*ft_strcpy(char *dst, char *src)
 long long	ft_atoi(char *str, t_data *data)
 {
 	int		i;
-	long long		signe;
-	long long		res;
 
-	res = 0;
-	signe = 1;
+	data->res = 0;
+	data->signe = 1;
 	i = 0;
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
-			signe *= -1;
+			data->signe *= -1;
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
 	{
-		res = res * 10;
-		res = res + str[i] - '0';
+		data->res = data->res * 10;
+		data->res = data->res + str[i] - '0';
 		i++;
 	}
-	if((res * signe) > 2147483647 || (res * signe) < -2147483648)
+	if((data->res * data->signe) > 2147483647 || (data->res * data->signe) < -2147483648)
+	{
+		ft_lstclear(&data->stack_a);
 		ft_exit();
-	return (res * signe);
+	}
+	return (data->res * data->signe);
 }
 
 void	ft_lstadd_back(t_list **lst, t_list *new)

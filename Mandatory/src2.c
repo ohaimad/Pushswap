@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:53:58 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/20 23:21:41 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/21 19:47:07 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,21 @@ int	check_signe (char **num)
 	}
 	check_space(num);
 	return(0);
+}
+
+void	check_order(t_list *ord)
+{
+	t_list *ord1;
+
+	while (ord)
+	{
+		ord1 = ord->next;
+		while (ord1)
+		{
+			if (ord->content == ord1->content)
+				ft_exit();
+			ord1 = ord1->next;
+		}
+		ord = ord->next;
+	}
 }

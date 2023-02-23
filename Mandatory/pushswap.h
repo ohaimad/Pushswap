@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/20 23:25:39 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/21 19:46:33 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef struct s_data
 	int len;
 	t_list	*stack_a;
 	char **list;
+	long long		signe;
+	long long		res;
 } t_data;
 
 
@@ -59,4 +61,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstnew(int content, int position);
 void	ft_lstclear(t_list **lst);
 void	freeall(char **s, int len);
+void	check_order(t_list *ord);
 
