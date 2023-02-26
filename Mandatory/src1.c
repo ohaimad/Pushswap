@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:52:05 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/23 23:32:04 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/26 18:18:05 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,28 +85,33 @@ void	ft_swap(t_list **swp, int st)
 		write(1, "sb\n", 3);
 }
 
-// void	ft_index(t_data *index, t_list **in)
-// {
-// 	int i;
+void	ft_reverse(t_data *rev)
+{
+	t_list *re;
+	t_list *tmp;
 
-// 	i = 0;
-// 	while(*in < (*in)->)
-// 	{
-// 		if((*in)->content )
-// 			(*in)->position = i;
-// 		i++;
-// 	}
+	re = rev->stack_a;
+	tmp = rev->stack_a->next;
+	while(re)
+	{
+		if(re->next == NULL)
+		{
+			re->next = rev->stack_a;
+			rev->stack_a->next = NULL;
+			break;
+		}
+		re = re->next;
+	}
+	rev->stack_a = tmp;
+	write(1, "ra\n", 3);
+}
 
-
-	
-// }
 t_list	*ft_index(t_data *in)
 {
 	int i;
 	t_list *min;
 	t_list *cut;
 	t_list *tmp;
-	
 
 	cut = in->stack_a;
 	tmp = in->stack_a;

@@ -6,11 +6,12 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:28:37 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/21 19:59:03 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/26 18:03:07 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
 
 int		ft_strlen(char const *str)
 {
@@ -129,4 +130,26 @@ void	ft_lstclear(t_list **lst)
 		*lst = new;
 	}
 	*lst = 0;
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char	*s;
+	char	*str;
+	size_t	i;
+	size_t	x;
+
+	s = (char *)s1;
+	i = 0;
+	x = ft_strlen(s) + 1;
+	str = malloc(x);
+	if (str == 0)
+		return (NULL);
+	while (s[i] && i <= x)
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

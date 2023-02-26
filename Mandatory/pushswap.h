@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/23 23:30:14 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/26 18:03:21 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,8 @@ typedef struct s_data
 	long long		res;
 } t_data;
 
-
-
-
 int		ft_strlen(char const *str);
+char	*ft_strdup(const char *s1);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 char	*ft_strcpy(char *dst, char *src);
 int		ft_len (int s, char **str, int space);
@@ -65,4 +63,5 @@ void	freeall(char **s, int len);
 void	check_order(t_list *ord);
 void	ft_swap(t_list **swp, int st);
 t_list	*ft_index(t_data *in);
+void	ft_reverse(t_data *rev);
 

@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:09:00 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/23 23:33:01 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/26 17:43:10 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ int main(int ac, char **av)
 			i++;
 		}
 		check_order(data.stack_a);
-		data.stack_a = ft_index(&data);
 		// ft_swap(&data.stack_a, 0);
-		
-		
+		ft_reverse(&data);
+		data.stack_a = ft_index(&data);
 		while (data.stack_a)
 		{
+			printf("%d->", data.stack_a->content);
 			printf("%d\n", data.stack_a->position);
 			data.stack_a = data.stack_a->next;
 		}
