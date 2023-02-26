@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:28:37 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/26 18:03:07 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/26 23:17:12 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	while (head->next)
 		head = head->next;
 	head->next = new;
+}
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{	
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }
 
 t_list	*ft_lstnew(int content, int position)

@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:52:05 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/26 18:18:05 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/26 23:20:30 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,29 @@ void	ft_reverse(t_data *rev)
 	}
 	rev->stack_a = tmp;
 	write(1, "ra\n", 3);
+}
+
+void	ft_r_reverse(t_data *rrev)
+{
+	t_list *re;
+	t_list **rre;
+	t_list *last;
+	t_list *pre_last;
+
+	re = rrev->stack_a;
+	rre = &rrev->stack_a;
+	while(re)
+	{
+		if(re->next->next == NULL)
+		{
+			pre_last = re;
+			last = re->next;
+			pre_last->next = NULL;
+		}
+		re = re->next;
+	}
+	ft_lstadd_front(rre,last);
+	write(1, "rra\n", 4);
 }
 
 t_list	*ft_index(t_data *in)
