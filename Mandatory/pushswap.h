@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/26 23:17:24 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/26 23:28:44 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	freeall(char **s, int len);
 void	check_order(t_list *ord);
 void	ft_swap(t_list **swp, int st);
 t_list	*ft_index(t_data *in);
-void	ft_reverse(t_data *rev);
-void	ft_r_reverse(t_data *rrev);
+void	ft_reverse(t_data *rev, int st);
+void	ft_r_reverse(t_data *rrev, int st);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 
