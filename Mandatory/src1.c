@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:52:05 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/26 23:28:37 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/02/27 15:58:13 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	ft_swap(t_list **swp, int st)
 {
 	int	swap;
 
+	if((*swp)->next == NULL)
+		return;
 	swap = (*swp)->content;
 	(*swp)->content = (*swp)->next->content;
 	(*swp)->next->content = swap;
@@ -89,7 +91,11 @@ void	ft_reverse(t_data *rev, int st)
 {
 	t_list *re;
 	t_list *tmp;
-
+	
+	if(st == 0 && !rev->stack_a->next)
+		return;
+	else if(st == 1 && !rev->stack_b->next)
+		return;
 	re = rev->stack_a;
 	tmp = rev->stack_a->next;
 	while(re)
@@ -109,30 +115,73 @@ void	ft_reverse(t_data *rev, int st)
 		write(1, "rb\n", 3);
 }
 
-void	ft_r_reverse(t_data *rrev, int st)
+void	ft_ra_reverse(t_data *rrev)
 {
 	t_list *re;
-	t_list **rre;
-	t_list *last;
-	t_list *pre_last;
-
+	if(!rrev->stack_a->next)
+		return;
 	re = rrev->stack_a;
-	rre = &rrev->stack_a;
 	while(re)
 	{
 		if(re->next->next == NULL)
 		{
-			pre_last = re;
-			last = re->next;
-			pre_last->next = NULL;
+			ft_lstadd_front(&rrev->stack_a, 
+				ft_lstnew(re->next->content, re->next->position));
+			re->next = NULL;
+			break;
 		}
 		re = re->next;
 	}
-	ft_lstadd_front(rre,last);
-	if(st == 0)
 		write(1, "rra\n", 4);
-	else
+}
+
+void	ft_rb_reverse(t_data *rrev)
+{
+	t_list *re;
+	if(!rrev->stack_b->next)
+		return;
+	re = rrev->stack_b;
+	while(re)
+	{
+		if(re->next->next == NULL)
+		{
+			// printf("\n%d\n",re->content);
+			ft_lstadd_front(&rrev->stack_b, 
+				ft_lstnew(re->next->content, re->next->position));
+			re->next = NULL;
+			break;
+		}
+		re = re->next;
+	}
 		write(1, "rrb\n", 4);
+}
+
+void	ft_push_b(t_data *pu)
+{
+	int tmp;
+	int tmp1;
+
+	if (!pu->stack_a)
+		return ;
+	tmp = pu->stack_a->content;
+	tmp1 = pu->stack_a->position;
+	ft_lstadd_front(&pu->stack_b, ft_lstnew(tmp, tmp1));
+	pu->stack_a = pu->stack_a->next;
+	write(1, "pb\n", 4);
+}
+
+void	ft_push_a(t_data *pu)
+{
+	int tmp;
+	int tmp1;
+
+	if (!pu->stack_b)
+		return ;
+	tmp = pu->stack_b->content;
+	tmp1 = pu->stack_b->position;
+	ft_lstadd_front(&pu->stack_a, ft_lstnew(tmp, tmp1));
+	pu->stack_b = pu->stack_b->next;
+	write(1, "pa\n", 4);
 }
 
 t_list	*ft_index(t_data *in)
