@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   src2.c                                             :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 00:53:58 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/26 16:06:51 by ohaimad          ###   ########.fr       */
+/*   Created: 2023/02/17 00:52:05 by ohaimad           #+#    #+#             */
+/*   Updated: 2023/03/01 21:43:40 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-
-void	ft_exit(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-}
 
 void	check_space(char **sp)
 {
@@ -62,6 +56,7 @@ int	check_signe (char **num)
 	return(0);
 }
 
+
 void	check_order(t_list *ord)
 {
 	t_list *ord1;
@@ -77,4 +72,26 @@ void	check_order(t_list *ord)
 		}
 		ord = ord->next;
 	}
+}
+
+int	check_av(char **string)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while(string[i])
+	{
+		j = 0;
+		while (string[i][j])
+		{
+			if((string[i][j] >= '0' && string[i][j] <= '9'))
+				break;
+		j++;
+		}
+		if(j == ft_strlen(string[i]))
+			return(0);
+	i++;
+	}
+	return(1);
 }

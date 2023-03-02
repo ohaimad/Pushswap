@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/02/27 14:44:04 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/02 18:14:35 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_strdup(const char *s1);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 char	*ft_strcpy(char *dst, char *src);
 int		ft_len (int s, char **str, int space);
-int	check_av(char **string);
+int		check_av(char **string);
 char	*ft_strjoin(int size, char **string, char *arg);
 char	**ft_split(char const *s, char c);
 long long	ft_atoi(char *str, t_data *data);
@@ -64,10 +64,14 @@ void	freeall(char **s, int len);
 void	check_order(t_list *ord);
 void	ft_swap(t_list **swp, int st);
 t_list	*ft_index(t_data *in);
-void	ft_reverse(t_data *rev, int st);
-void	ft_ra_reverse(t_data *rrev);
-void	ft_rb_reverse(t_data *rrev);
+void	ft_ra(t_data *rev, int id);
+void	ft_rb(t_data *rev, int id);
+void	ft_rra(t_data *rrev, int id);
+void	ft_rrb(t_data *rrev, int id);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_push_b(t_data *pu);
 void	ft_push_a(t_data *pu);
+void	ft_rr(t_data *rev);
+void 	ft_rrr(t_data *rrev);
+void	ft_ss(t_data *swp);
 
