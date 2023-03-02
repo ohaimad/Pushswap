@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/02 18:14:35 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/02 19:48:42 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ long long	ft_atoi(char *str, t_data *data);
 void	ft_exit(void);
 int		check_signe (char **num);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstnew(int content, int position);
 void	ft_lstclear(t_list **lst);
 void	freeall(char **s, int len);
@@ -68,10 +69,10 @@ void	ft_ra(t_data *rev, int id);
 void	ft_rb(t_data *rev, int id);
 void	ft_rra(t_data *rrev, int id);
 void	ft_rrb(t_data *rrev, int id);
-void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_push_b(t_data *pu);
 void	ft_push_a(t_data *pu);
 void	ft_rr(t_data *rev);
 void 	ft_rrr(t_data *rrev);
 void	ft_ss(t_data *swp);
+void    sort_3(t_data *sort);
 

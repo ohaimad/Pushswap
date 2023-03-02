@@ -2,7 +2,7 @@ NAME = push_swap
 
 CFLAGS = -g -Wall -Wextra -Werror
 
-SRCS = libft.c main.c libft2.c linked_list.c check.c instructions.c instructions2.c src3.c \
+SRCS = libft.c main.c libft2.c linked_list.c check.c sort_3_5.c instructions.c instructions2.c src3.c \
 
 OBJS = $(SRCS:.c=.o)
 

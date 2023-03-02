@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:09:00 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/02 18:13:59 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/02 19:53:09 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,7 @@ int main(int ac, char **av)
 		}
 		check_order(data.stack_a);
 		data.stack_a = ft_index(&data);
-		ft_push_b(&data);
-		ft_push_b(&data);
-		ft_push_b(&data);
-		ft_push_b(&data);
-		ft_ss(&data);
+		sort_3(&data);
 		while (data.stack_a)
 		{
 			printf("a == %d / ", data.stack_a->content);
