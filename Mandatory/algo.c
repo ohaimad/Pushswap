@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 19:36:57 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/04 23:41:43 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/04 23:57:19 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_lstsize(t_list *lst)
 	return (count);
 }
 
-void    ft_size(t_data *size)
+void    ft_size(t_data *size, int args)
 {
     int s;
     int sta;
@@ -34,7 +34,7 @@ void    ft_size(t_data *size)
     int plus;
 
     s = ft_lstsize(size->stack_a);
-    res = s / 5;
+    res = s / args;
     plus = 0;
     sta = 0;
     end = res - 1;
@@ -42,7 +42,7 @@ void    ft_size(t_data *size)
     {
         if(size->stack_a->position >= sta && size->stack_a->position <= end)
         {
-            if(size->stack_a->position < ((sta + end) / 2))
+            if(size->stack_a->position <= ((sta + end) / 2))
                 ft_push_b(size);
             else
             {

@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/04 22:34:23 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/04 23:59:45 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,5 @@ void    sort_3(t_data *sort);
 void    sort_5(t_data *sort);
 void    sort_4(t_data *sort);
 int		ft_lstsize(t_list *lst);
-void    ft_size(t_data *size);
+void    ft_size(t_data *size, int args);
 
