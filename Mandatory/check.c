@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:52:05 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/01 21:43:40 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/04 19:13:52 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int	check_signe (char **num)
 	check_space(num);
 	return(0);
 }
-
 
 void	check_order(t_list *ord)
 {
