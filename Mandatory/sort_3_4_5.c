@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_3_5.c                                         :+:      :+:    :+:   */
+/*   sort_3_4_5.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 19:25:41 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/02 23:06:59 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/04 02:40:27 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,43 @@ void    sort_3(t_data *sort)
         ft_swap(&sort->stack_a, 0);
         ft_ra(sort, 1);
     }
+}
+
+void    ft_indice(t_data *sort, int j)
+{
+    t_list *tmp;
+    int i;
+    
+    i = 0;
+    tmp = sort->stack_a;
+    while(tmp)
+    {
+        if(tmp->position == j)
+            break;
+        i++;
+        tmp = tmp->next;
+    }
+    while(i > 0)
+    {
+        ft_ra(sort, 1);
+        i--;
+    }
+    ft_push_b(sort);
+}
+
+void    sort_5(t_data *sort)
+{
+    ft_indice(sort, 0);
+    ft_indice(sort, 1);
+    sort_3(sort);
+    ft_push_a(sort);
+    ft_push_a(sort);
+}
+
+
+void sort_4(t_data *sort)
+{
+    ft_indice(sort, 0);
+    sort_3(sort);
+    ft_push_a(sort);
 }
