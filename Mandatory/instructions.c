@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:53:58 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/02 18:21:26 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/05 22:08:54 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_push_b(t_data *pu)
 	tmp1 = pu->stack_a->position;
 	ft_lstadd_front(&pu->stack_b, ft_lstnew(tmp, tmp1));
 	pu->stack_a = pu->stack_a->next;
-	write(1, "pb\n", 4);
+	write(1, "pb\n", 3);
 }
 
 void	ft_push_a(t_data *pu)
@@ -37,7 +37,7 @@ void	ft_push_a(t_data *pu)
 	tmp1 = pu->stack_b->position;
 	ft_lstadd_front(&pu->stack_a, ft_lstnew(tmp, tmp1));
 	pu->stack_b = pu->stack_b->next;
-	write(1, "pa\n", 4);
+	write(1, "pa\n", 3);
 }
 
 void	ft_ra(t_data *rev, int id)

@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 19:36:57 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/04 23:57:19 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/05 22:27:15 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,39 +25,31 @@ int	ft_lstsize(t_list *lst)
 	return (count);
 }
 
-void    ft_size(t_data *size, int args)
+void    ft_size(t_data *s, int args)
 {
-    int s;
-    int sta;
-    int end;
-    int res;
-    int plus;
-
-    s = ft_lstsize(size->stack_a);
-    res = s / args;
-    plus = 0;
-    sta = 0;
-    end = res - 1;
-    while(size->stack_a)
+    s->size = ft_lstsize(s->stack_a);
+    s->rslt = s->size / args;
+    s->plus = 0;
+    s->end = s->rslt;
+    while(s->stack_a)
     {
-        if(size->stack_a->position >= sta && size->stack_a->position <= end)
+        if(s->stack_a->position <= s->end)
         {
-            if(size->stack_a->position <= ((sta + end) / 2))
-                ft_push_b(size);
+            if(s->stack_a->position <= (s->end - (s->rslt / 2)))
+                ft_push_b(s);
             else
             {
-                ft_push_b(size);
-                ft_rb(size, 1);
+                ft_push_b(s);
+                ft_rb(s, 1);
             }
-            plus++;
+            s->plus++;
         }
-        else if(plus == res)
+        else if(s->plus == s->rslt)
         {
-            sta += res;
-            end += res;
-            plus = 0;
+            s->end += s->rslt;
+            s->plus = 0;
         }
         else
-            ft_ra(size, 1);
+            ft_ra(s, 1);
     }
 }

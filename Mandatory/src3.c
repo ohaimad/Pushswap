@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:19:39 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/01 21:40:18 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/05 03:28:01 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_list	*ft_index(t_data *in)
 	cut = in->stack_a;
 	tmp = in->stack_a;
 	min = in->stack_a;
-	i = 0;
+	i = 1;
 	while(cut)
 	{
 		in->stack_a = tmp;

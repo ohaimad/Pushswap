@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:09:00 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/05 00:00:03 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/05 22:05:24 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,23 @@ int main(int ac, char **av)
 		}
 		check_order(data.stack_a);
 		data.stack_a = ft_index(&data);
+		// sort_5(&data);
 		if (ft_lstsize(data.stack_a) <= 100)
 			ft_size(&data, 5);
 		else
-			ft_size(&data, 10);			
-		while (data.stack_a)
-		{
-			printf("a == %d / ", data.stack_a->content);
-			printf("ia == %d\n", data.stack_a->position);
-			data.stack_a = data.stack_a->next;
-		}
-		while (data.stack_b)
-		{
-			printf("b == %d / ", data.stack_b->content);
-			printf("ib == %d\n", data.stack_b->position);
-			data.stack_b = data.stack_b->next;
-		}
+			ft_size(&data, 9);		
+		// while (data.stack_a)
+		// {
+		// 	printf("a == %d / ", data.stack_a->content);
+		// 	printf("ia == %d\n", data.stack_a->position);
+		// 	data.stack_a = data.stack_a->next;
+		// }
+		// while (data.stack_b)
+		// {
+		// 	printf("b == %d / ", data.stack_b->content);
+		// 	printf("ib == %d\n", data.stack_b->position);
+		// 	data.stack_b = data.stack_b->next;
+		// }
 		freeall(data.list, data.len);
 		ft_lstclear(&data.stack_a);
 	}

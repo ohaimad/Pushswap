@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/04 23:59:45 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/05 22:27:02 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ typedef struct s_data
 	char		**list;
 	long long	signe;
 	long long	res;
+	int size;
+    int end;
+    int rslt;
+    int plus;
 } t_data;
 
 int		ft_strlen(char const *str);
