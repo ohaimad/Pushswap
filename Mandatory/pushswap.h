@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/05 22:27:02 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/08 23:06:18 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ void	ft_ss(t_data *swp);
 void    sort_3(t_data *sort);
 void    sort_5(t_data *sort);
 void    sort_4(t_data *sort);
+int		ft_nb_instra(t_data *data, int in);
 int		ft_lstsize(t_list *lst);
 void    ft_size(t_data *size, int args);
-
+int		pos_max_be(t_data *size, int in);
+int    ft_max_be_max(t_data *size);

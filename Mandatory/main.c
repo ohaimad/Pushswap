@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:09:00 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/05 22:05:24 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/08 20:39:11 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ int main(int ac, char **av)
 		}
 		check_order(data.stack_a);
 		data.stack_a = ft_index(&data);
-		// sort_5(&data);
 		if (ft_lstsize(data.stack_a) <= 100)
 			ft_size(&data, 5);
 		else
-			ft_size(&data, 9);		
+			ft_size(&data, 9);
+		ft_max(&data);
 		// while (data.stack_a)
 		// {
 		// 	printf("a == %d / ", data.stack_a->content);
