@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 19:36:57 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/08 23:00:09 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/09 00:24:55 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int    ft_max_be_max(t_data *size)
 		size->stack_b = size->stack_b->next;
 	}
 	size->stack_b = tmp;
+	return(0);
 }
 
 int	pos_max_be(t_data *size, int in)
@@ -85,6 +86,7 @@ int	pos_max_be(t_data *size, int in)
 			return(i);
 		i++;
 	}
+	return(0);
 }
 
 int	ft_nb_instra(t_data *data, int in)
@@ -92,7 +94,7 @@ int	ft_nb_instra(t_data *data, int in)
 	int max;
 	int size;
 
-	max = pos_max(data, in);
+	max = pos_max_be(data, in);
 	size = ft_lstsize(data->stack_b);
 	if (max <= size / 2)
 		return(max - 1);
@@ -105,22 +107,40 @@ void	ft_push_back(t_data *data)
 	t_list *tmp;
 	int m;
 	int b;
+	int max;
+	int bef;
 
 	m = ft_max_be_max(data);
 	b = ft_max_be_max(data);
+	max = pos_max_be(data, m);
+	bef = pos_max_be(data, b);
 	tmp = data->stack_b;
 	while(tmp)
 	{
 		if (ft_nb_instra(data, m) <= ft_nb_instra(data, b))
-		{
-			ft_rrb(data, 1);
-			ft_push_a(data);
-		}
+			cheking(data, max);
 		else
 		{
-			ft_rrb(data, 1);
-			ft_push_a(data);
+			cheking(data, bef);
+			cheking(data, max);
+			ft_swap(&data->stack_a, 1);
 		}
 		tmp = tmp->next;
+	}
+}
+
+void	cheking(t_data *data, int max)
+{
+	if (max <= ((ft_lstsize(data->stack_b)) / 2))
+	{
+		while(ft_nb_instra(data, max))
+			ft_rb(data, 1);
+		ft_push_a(data);
+	}
+	else
+	{
+		while(ft_nb_instra(data, max))
+			ft_rrb(data, 1);
+		ft_push_a(data);
 	}
 }

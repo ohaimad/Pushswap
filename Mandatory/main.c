@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:09:00 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/08 20:39:11 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/09 00:26:33 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int main(int ac, char **av)
 			ft_size(&data, 5);
 		else
 			ft_size(&data, 9);
-		ft_max(&data);
+		// ft_push_back(&data);
 		// while (data.stack_a)
 		// {
 		// 	printf("a == %d / ", data.stack_a->content);
