@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 19:36:57 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/09 00:24:55 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/09 21:14:06 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void    ft_size(t_data *s, int args)
 	}
 }
 
-int    ft_max_be_max(t_data *size)
+int    ft_max_be_max(t_data *size, int in)
 {
 	t_list *tmp;
 	int max;
@@ -63,28 +63,30 @@ int    ft_max_be_max(t_data *size)
 	tmp = size->stack_b;
 	max = ft_lstsize(size->stack_b);
 	be_max = max - 1;
-	while(size->stack_b)
+	while(tmp)
 	{
-		if(size->stack_b->position == max)
-			return (max = size->stack_b->position);
-		else if(size->stack_b->position == be_max)
-			return(be_max = size->stack_b->position);
-		size->stack_b = size->stack_b->next;
+		if(tmp->position == max && in == 0)
+			return (max = tmp->position);
+		else if(tmp->position == be_max && in == 1)
+			return(be_max = tmp->position);
+		tmp = tmp->next;
 	}
-	size->stack_b = tmp;
 	return(0);
 }
 
 int	pos_max_be(t_data *size, int in)
 {
 	int i;
+	t_list	*tmp;
 
-	i = 0;
-	while(size->stack_a)
+	tmp = size->stack_b;
+	i = 1;
+	while(tmp)
 	{
-		if(size->stack_a->position == in)
+		if(tmp->position == in)
 			return(i);
 		i++;
+		tmp = tmp->next;
 	}
 	return(0);
 }
@@ -102,45 +104,63 @@ int	ft_nb_instra(t_data *data, int in)
 		return((size - max) + 1);	
 }
 
+void	cheking(t_data *data, int max)
+{
+	int i;
+	if (pos_max_be(data, max) <= ((ft_lstsize(data->stack_b)) / 2))
+		i = 0;
+	else
+		i = 1;
+	while (1)
+	{
+		if(max == data->stack_b->position)
+		{
+			ft_push_a(data);
+			return ;
+		}
+		if (i == 0)
+			ft_rb(data, 1);
+		else
+			ft_rrb(data, 1);
+	}
+}
+
 void	ft_push_back(t_data *data)
 {
-	t_list *tmp;
 	int m;
 	int b;
 	int max;
 	int bef;
 
-	m = ft_max_be_max(data);
-	b = ft_max_be_max(data);
-	max = pos_max_be(data, m);
-	bef = pos_max_be(data, b);
-	tmp = data->stack_b;
-	while(tmp)
+	if (ft_lstsize(data->stack_b) == 2)
 	{
-		if (ft_nb_instra(data, m) <= ft_nb_instra(data, b))
-			cheking(data, max);
+		if (data->stack_a->position > data->stack_a->next->position)
+		{
+			ft_push_a(data);
+			ft_push_a(data);
+		}
 		else
 		{
-			cheking(data, bef);
-			cheking(data, max);
-			ft_swap(&data->stack_a, 1);
+			ft_swap(&data->stack_b, 1);
+			ft_push_a(data);
+			ft_push_a(data);
 		}
-		tmp = tmp->next;
+		return;
 	}
-}
-
-void	cheking(t_data *data, int max)
-{
-	if (max <= ((ft_lstsize(data->stack_b)) / 2))
+	m = ft_max_be_max(data, 0);
+	b = ft_max_be_max(data, 1);
+	max = ft_nb_instra(data, m);
+	bef = ft_nb_instra(data, b);
+	if(bef < max)
 	{
-		while(ft_nb_instra(data, max))
-			ft_rb(data, 1);
-		ft_push_a(data);
+		cheking(data, m);
+		cheking(data, b);
+		ft_swap(&data->stack_a, 0);
 	}
 	else
-	{
-		while(ft_nb_instra(data, max))
-			ft_rrb(data, 1);
-		ft_push_a(data);
-	}
+		cheking(data, m);
+	if (data->stack_b)
+		ft_push_back(data);
+	else
+		return ;
 }
