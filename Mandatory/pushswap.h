@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/09 19:32:03 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/10 23:08:39 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,3 +87,4 @@ int		pos_max_be(t_data *size, int in);
 int    ft_max_be_max(t_data *size, int in);
 void	cheking(t_data *data, int max);
 void	ft_push_back(t_data *data);
+void	gd_order(t_data *data);

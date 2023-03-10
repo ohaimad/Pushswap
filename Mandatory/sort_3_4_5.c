@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 19:25:41 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/04 02:40:27 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/10 22:29:18 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void    ft_indice(t_data *sort, int j)
         i++;
         tmp = tmp->next;
     }
-    while(i > 0)
+    while(i >= 1)
     {
         ft_ra(sort, 1);
         i--;
@@ -64,8 +64,8 @@ void    ft_indice(t_data *sort, int j)
 
 void    sort_5(t_data *sort)
 {
-    ft_indice(sort, 0);
     ft_indice(sort, 1);
+    ft_indice(sort, 2);
     sort_3(sort);
     ft_push_a(sort);
     ft_push_a(sort);
@@ -74,7 +74,7 @@ void    sort_5(t_data *sort)
 
 void sort_4(t_data *sort)
 {
-    ft_indice(sort, 0);
+    ft_indice(sort, 1);
     sort_3(sort);
     ft_push_a(sort);
 }

@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:20:12 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/02 23:15:51 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/10 22:11:55 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,16 @@ void ft_rrr(t_data *rrev)
 void	ft_swap(t_list **swp, int st)
 {
 	int	swap;
+	int	swap_in;
 
 	if((*swp)->next == NULL)
 		return;
 	swap = (*swp)->content;
 	(*swp)->content = (*swp)->next->content;
 	(*swp)->next->content = swap;
+	swap_in = (*swp)->position;
+	(*swp)->position = (*swp)->next->position;
+	(*swp)->next->position = swap_in;
 	if(st == 0)
 		write(1, "sa\n", 3);
 	else if (st == 1)
