@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 19:36:57 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/09 21:14:06 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/10 20:33:19 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int    ft_max_be_max(t_data *size, int in)
 			return(be_max = tmp->position);
 		tmp = tmp->next;
 	}
-	return(0);
+	return(1);
 }
 
 int	pos_max_be(t_data *size, int in)
@@ -100,8 +100,7 @@ int	ft_nb_instra(t_data *data, int in)
 	size = ft_lstsize(data->stack_b);
 	if (max <= size / 2)
 		return(max - 1);
-	else
-		return((size - max) + 1);	
+	return((size - max) + 1);
 }
 
 void	cheking(t_data *data, int max)
@@ -113,6 +112,7 @@ void	cheking(t_data *data, int max)
 		i = 1;
 	while (1)
 	{
+
 		if(max == data->stack_b->position)
 		{
 			ft_push_a(data);
@@ -132,35 +132,38 @@ void	ft_push_back(t_data *data)
 	int max;
 	int bef;
 
-	if (ft_lstsize(data->stack_b) == 2)
+	// if (ft_lstsize(data->stack_b) == 2)
+	// {
+	// 	if (data->stack_a->position > data->stack_a->next->position)
+	// 	{
+	// 		ft_push_a(data);
+	// 		ft_push_a(data);
+	// 	}
+	// 	else
+	// 	{
+	// 		ft_swap(&data->stack_b, 1);
+	// 		ft_push_a(data);
+	// 		ft_push_a(data);
+	// 	}
+	// 	return;
+	// }
+	while (ft_lstsize(data->stack_b))
 	{
-		if (data->stack_a->position > data->stack_a->next->position)
+		m = ft_max_be_max(data, 0);
+		b = ft_max_be_max(data, 1);
+		max = ft_nb_instra(data, m);
+		bef = ft_nb_instra(data, b);
+		if(bef < max)
 		{
-			ft_push_a(data);
-			ft_push_a(data);
+			cheking(data, b);
+			cheking(data, m);
+			ft_swap(&data->stack_a, 0);
 		}
 		else
-		{
-			ft_swap(&data->stack_b, 1);
-			ft_push_a(data);
-			ft_push_a(data);
-		}
-		return;
+			cheking(data, m);
 	}
-	m = ft_max_be_max(data, 0);
-	b = ft_max_be_max(data, 1);
-	max = ft_nb_instra(data, m);
-	bef = ft_nb_instra(data, b);
-	if(bef < max)
-	{
-		cheking(data, m);
-		cheking(data, b);
-		ft_swap(&data->stack_a, 0);
-	}
-	else
-		cheking(data, m);
-	if (data->stack_b)
-		ft_push_back(data);
-	else
-		return ;
+	// if (data->stack_b)
+	// 	ft_push_back(data);
+	// else
+		// return ;
 }
