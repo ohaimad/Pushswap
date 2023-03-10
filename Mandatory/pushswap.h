@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/10 23:08:39 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/10 23:49:33 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,12 @@ struct s_split
 
 typedef struct s_data
 {
-	int len;
 	t_list		*stack_a;
 	t_list		*stack_b;
+	t_list *min;
+	t_list *cut;
+	t_list *tmp;
+	int len;
 	char		**list;
 	long long	signe;
 	long long	res;
@@ -47,6 +50,8 @@ typedef struct s_data
     int end;
     int rslt;
     int plus;
+	int i;
+	
 } t_data;
 
 int		ft_strlen(char const *str);

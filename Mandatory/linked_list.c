@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:24:49 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/04 19:13:31 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/10 23:40:36 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,17 @@ void	ft_lstclear(t_list **lst)
 		*lst = new;
 	}
 	*lst = 0;
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	int	count;
+
+	count = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		count++;
+	}
+	return (count);
 }
