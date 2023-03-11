@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:53:58 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/11 15:48:41 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/11 18:26:42 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@ void	ft_push_b(t_data *pu)
 {
 	int tmp;
 	int tmp1;
+	t_list	*tmp_next;
 
 	if (!pu->stack_a)
 		return ;
 	tmp = pu->stack_a->content;
 	tmp1 = pu->stack_a->position;
 	ft_lstadd_front(&pu->stack_b, ft_lstnew(tmp, tmp1));
-	pu->stack_a = pu->stack_a->next;
+	tmp_next = pu->stack_a->next;
+	free(pu->stack_a);
+	pu->stack_a = tmp_next;
 	write(1, "pb\n", 3);
 }
 
@@ -30,13 +33,16 @@ void	ft_push_a(t_data *pu)
 {
 	int tmp;
 	int tmp1;
+	t_list *tmp_next;
 
 	if (!pu->stack_b)
 		return ;
 	tmp = pu->stack_b->content;
 	tmp1 = pu->stack_b->position;
 	ft_lstadd_front(&pu->stack_a, ft_lstnew(tmp, tmp1));
-	pu->stack_b = pu->stack_b->next;
+	tmp_next = pu->stack_b->next;
+	free(pu->stack_b);
+	pu->stack_b = tmp_next;
 	write(1, "pa\n", 3);
 }
 

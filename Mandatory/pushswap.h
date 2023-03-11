@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/11 01:09:54 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/11 18:04:55 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct s_data
 	int j;
 	char **av;
 	int ac;
+	char *strn;
+	int k;
 } t_data;
 
 int		ft_strlen(char const *str);

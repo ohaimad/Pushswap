@@ -6,50 +6,43 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:09:00 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/11 15:49:37 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/11 18:36:49 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-// void f()
-// {
-// 	system("leaks push_swap");
-// }
-
+void f()
+{
+	system("leaks push_swap");
+}
 int main(int ac, char **av)
 {
 	t_data data;
-	// atexit(f);
-
+	atexit(f);
 	data.stack_a = NULL;
 	data.stack_b = NULL;
 	data.len = ac - 1;
 	if (ac >= 2)
 	{
-		char *str;
-		int i;
-
-		i = 0;
-		str = ft_strjoin(ac - 1, av + 1, " ");
-		if(!str)
+		data.k = 0;
+		data.strn = ft_strjoin(ac - 1, av + 1, " ");
+		if(!data.strn)
 			ft_exit();
-		data.list = ft_split(str, ' ');
-		free(str);
+		data.list = ft_split(data.strn, ' ');
+		free(data.strn);
 		check_signe(data.list);
-		while(data.list[i])
+		while(data.list[data.k])
 		{
-			ft_lstadd_back(&data.stack_a, ft_lstnew(ft_atoi(data.list[i], &data), -1));
-			i++;
+			ft_lstadd_back(&data.stack_a, ft_lstnew(ft_atoi(data.list[data.k], &data), -1));
+			free(data.list[data.k]);
+			data.k++;
 		}
+		free(data.list);
 		check_order(data.stack_a);
 		data.stack_a = ft_index(&data);
-		if(ft_lstsize(data.stack_a) == 1)
-			return(0);
 		gd_order(&data);
 		ft_vars_main(data);
-		freeall(data.list, data.len);
-		ft_lstclear(&data.stack_a);
 	}
 	else
 		ft_exit();	

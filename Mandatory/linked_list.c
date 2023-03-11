@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:24:49 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/10 23:40:36 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/11 16:48:46 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,13 @@ void	ft_lstclear(t_list **lst)
 
 	if (!lst)
 		return ;
-	new = *lst;
-	while (new)
+	while (*lst)
 	{
-		new = new->next;
+		new = (*lst)->next;
 		free(*lst);
 		*lst = new;
 	}
-	*lst = 0;
+	*lst = NULL;
 }
 
 int	ft_lstsize(t_list *lst)
