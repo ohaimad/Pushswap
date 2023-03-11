@@ -6,15 +6,21 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:09:00 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/11 01:16:51 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/11 15:49:37 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
+// void f()
+// {
+// 	system("leaks push_swap");
+// }
+
 int main(int ac, char **av)
 {
 	t_data data;
+	// atexit(f);
 
 	data.stack_a = NULL;
 	data.stack_b = NULL;
@@ -46,5 +52,5 @@ int main(int ac, char **av)
 		ft_lstclear(&data.stack_a);
 	}
 	else
-		ft_exit();
+		ft_exit();	
 }

@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:28:37 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/01 21:35:38 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/11 15:36:37 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ long long	ft_atoi(char *str, t_data *data)
 		data->res = data->res + str[i] - '0';
 		i++;
 	}
+	if (str[i] && str[i] != ' ')
+		ft_exit();
 	if((data->res * data->signe) > 2147483647 || (data->res * data->signe) < -2147483648)
 	{
 		ft_lstclear(&data->stack_a);
