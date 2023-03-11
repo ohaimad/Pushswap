@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/11 20:35:54 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/11 20:58:52 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,3 +101,4 @@ void	gd_order(t_data *data);
 void	ft_vars(t_data *in);
 void    print_stack(t_data data);
 int 	ft_vars_main(t_data data);
+void 	stack_init(t_data data);

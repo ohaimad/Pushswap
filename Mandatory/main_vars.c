@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 00:23:12 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/11 20:51:30 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/11 21:21:42 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,14 @@ void    print_stack(t_data data)
 			printf("ib == %d\n", data.stack_b->position);
 			data.stack_b = data.stack_b->next;
 		}
+}
+void stack_init(t_data data)
+{
+		while(data.list[data.k])
+		{
+			ft_lstadd_back(&data.stack_a, ft_lstnew(ft_atoi(data.list[data.k], &data), -1));
+			free(data.list[data.k]);
+			data.k++;
+		}
+		free(data.list);
 }
