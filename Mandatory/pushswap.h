@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/10 23:49:33 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/11 01:09:54 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ typedef struct s_data
     int rslt;
     int plus;
 	int i;
-	
+	char *str;
+	int j;
+	char **av;
+	int ac;
 } t_data;
 
 int		ft_strlen(char const *str);
@@ -93,3 +96,6 @@ int    ft_max_be_max(t_data *size, int in);
 void	cheking(t_data *data, int max);
 void	ft_push_back(t_data *data);
 void	gd_order(t_data *data);
+void	ft_vars(t_data *in);
+void    print_stack(t_data data);
+int 	ft_vars_main(t_data data);
