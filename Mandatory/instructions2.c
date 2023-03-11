@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:20:12 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/11 15:46:56 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/11 20:46:44 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_rra(t_data *rrev, int id)
 		{
 			ft_lstadd_front(&rrev->stack_a, 
 				ft_lstnew(re->next->content, re->next->position));
+			free(re->next);
 			re->next = NULL;
 			break;
 		}
@@ -45,6 +46,7 @@ void	ft_rrb(t_data *rrev, int id)
 		{
 			ft_lstadd_front(&rrev->stack_b, 
 				ft_lstnew(re->next->content, re->next->position));
+			free(re->next);
 			re->next = NULL;
 			break;
 		}

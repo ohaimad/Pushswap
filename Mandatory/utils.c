@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 23:42:20 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/11 15:53:52 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/11 20:35:32 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void ft_vars(t_data *in)
 t_list	*ft_index(t_data *in)
 {
 	ft_vars(in);
-	while (in->cut)
+	while(in->cut)
 	{
 		in->stack_a = in->tmp;
 		while(in->stack_a)
@@ -53,9 +53,9 @@ t_list	*ft_index(t_data *in)
 		}
 		in->stack_a = in->tmp;
 		in->min->position = in->i++;
-		while (in->stack_a)
+		while(in->stack_a)
 		{
-			if (in->stack_a->position == -1)
+			if(in->stack_a->position == -1)
 			{
 				in->min = in->stack_a;
 				break;
@@ -65,5 +65,5 @@ t_list	*ft_index(t_data *in)
 		in->cut = in->cut->next;
 	}
 	in->stack_a = in->tmp;
-	return (in->tmp);
+	return(in->tmp);
 }

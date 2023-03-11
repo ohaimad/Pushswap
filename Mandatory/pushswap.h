@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/11 18:04:55 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/11 20:35:54 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ void	ft_exit(void);
 int		check_signe (char **num);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
-t_list	*ft_lstnew(int content, int position);
 void	ft_lstclear(t_list **lst);
 void	freeall(char **s, int len);
 void	check_order(t_list *ord);
 void	ft_swap(t_list **swp, int st);
+t_list	*ft_lstnew(int content, int position);
 t_list	*ft_index(t_data *in);
 void	ft_ra(t_data *rev, int id);
 void	ft_rb(t_data *rev, int id);
