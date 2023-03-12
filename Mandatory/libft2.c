@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:32:11 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/11 17:19:23 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/12 18:24:44 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ char	**ft_split(char const *s, char c)
 	return (z.p);
 }
 
-int		ft_strlen(char const *str)
+int	ft_strlen(char const *str)
 {
 	int	len;
 

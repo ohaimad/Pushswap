@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:53:58 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/11 18:26:42 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/12 18:12:45 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_push_b(t_data *pu)
 {
-	int tmp;
-	int tmp1;
+	int		tmp;
+	int		tmp1;
 	t_list	*tmp_next;
 
 	if (!pu->stack_a)
@@ -31,9 +31,9 @@ void	ft_push_b(t_data *pu)
 
 void	ft_push_a(t_data *pu)
 {
-	int tmp;
-	int tmp1;
-	t_list *tmp_next;
+	int		tmp;
+	int		tmp1;
+	t_list	*tmp_next;
 
 	if (!pu->stack_b)
 		return ;
@@ -48,20 +48,20 @@ void	ft_push_a(t_data *pu)
 
 void	ft_ra(t_data *rev, int id)
 {
-	t_list *re;
-	t_list *tmp;
-	
-	if(!rev->stack_a->next)
-		return;
+	t_list	*re;
+	t_list	*tmp;
+
+	if (!rev->stack_a->next)
+		return ;
 	re = rev->stack_a;
 	tmp = rev->stack_a->next;
-	while(re)
+	while (re)
 	{
-		if(re->next == NULL)
+		if (re->next == NULL)
 		{
 			re->next = rev->stack_a;
 			rev->stack_a->next = NULL;
-			break;
+			break ;
 		}
 		re = re->next;
 	}
@@ -72,20 +72,20 @@ void	ft_ra(t_data *rev, int id)
 
 void	ft_rb(t_data *rev, int id)
 {
-	t_list *re;
-	t_list *tmp;
-	
-	if(!rev->stack_b->next)
-		return;
+	t_list	*re;
+	t_list	*tmp;
+
+	if (!rev->stack_b->next)
+		return ;
 	re = rev->stack_b;
 	tmp = rev->stack_b->next;
-	while(re)
+	while (re)
 	{
-		if(re->next == NULL)
+		if (re->next == NULL)
 		{
 			re->next = rev->stack_b;
 			rev->stack_b->next = NULL;
-			break;
+			break ;
 		}
 		re = re->next;
 	}
@@ -94,9 +94,9 @@ void	ft_rb(t_data *rev, int id)
 		write(1, "rb\n", 3);
 }
 
-void ft_rr(t_data *rev)
+void	ft_rr(t_data *rev)
 {
 	ft_rb(rev, 0);
 	ft_ra(rev, 0);
-	write(1, "rr\n", 3);	
+	write(1, "rr\n", 3);
 }

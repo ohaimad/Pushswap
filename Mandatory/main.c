@@ -6,16 +6,17 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:09:00 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/12 17:47:34 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/12 18:43:27 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_data data;
-	char *strn;
+	t_data	data;
+	char	*strn;
+
 	data.stack_a = NULL;
 	data.stack_b = NULL;
 	strn = NULL;

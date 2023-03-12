@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:28:37 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/11 15:36:37 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/12 18:40:43 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 char	*ft_strcpy(char *dst, char *src)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (src[i] != '\0')
@@ -47,16 +47,15 @@ char	*ft_strcpy(char *dst, char *src)
 
 long long	ft_atoi(char *str, t_data *data)
 {
-	int		i;
+	int	i;
 
 	data->res = 0;
 	data->signe = 1;
 	i = 0;
 	if (str[i] == '+' || str[i] == '-')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			data->signe *= -1;
-		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
 	{
@@ -66,7 +65,8 @@ long long	ft_atoi(char *str, t_data *data)
 	}
 	if (str[i] && str[i] != ' ')
 		ft_exit();
-	if((data->res * data->signe) > 2147483647 || (data->res * data->signe) < -2147483648)
+	if ((data->res * data->signe) > 2147483647
+		|| (data->res * data->signe) < -2147483648)
 	{
 		ft_lstclear(&data->stack_a);
 		ft_exit();
@@ -101,16 +101,18 @@ char	*ft_strjoin(int size, char **string, char *arg)
 	int		i;
 	char	*res;
 	int		len;
-	if(!check_av(string))
-		return(NULL);
+
+	if (!check_av(string))
+		return (NULL);
 	if (size == 0)
 	{
-		res = (char*)malloc(1);
+		res = (char *)malloc(1);
 		return (res);
 	}
 	len = ft_len(size, string, ft_strlen(arg));
 	i = -1;
-	if ((res = malloc(sizeof(char) * (len + 1))) == NULL)
+	res = malloc(sizeof(char) * (len + 1));
+	if (res == NULL)
 		return (0);
 	while (++i < size)
 	{
