@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:20:12 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/12 18:14:10 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/12 22:56:08 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,12 @@ void	ft_rrb(t_data *rrev, int id)
 		write(1, "rrb\n", 4);
 }
 
-void	ft_rrr(t_data *rrev)
+void	ft_rrr(t_data *rrev, int id)
 {
 	ft_rra(rrev, 0);
 	ft_rrb(rrev, 0);
-	write(1, "rrr\n", 4);
+	if (id == 1)
+		write(1, "rrr\n", 4);
 }
 
 void	ft_swap(t_list **swp, int st)

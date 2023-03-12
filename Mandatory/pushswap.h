@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:15:13 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/12 18:33:22 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/12 22:58:54 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -87,8 +88,8 @@ void				ft_rra(t_data *rrev, int id);
 void				ft_rrb(t_data *rrev, int id);
 void				ft_push_b(t_data *pu);
 void				ft_push_a(t_data *pu);
-void				ft_rr(t_data *rev);
-void				ft_rrr(t_data *rrev);
+void				ft_rr(t_data *rev, int id);
+void				ft_rrr(t_data *rrev, int id);
 void				ft_ss(t_data *swp);
 void				sort_3(t_data *sort);
 void				sort_5(t_data *sort);
@@ -102,9 +103,13 @@ void				cheking(t_data *data, int max);
 void				ft_push_back(t_data *data);
 void				gd_order(t_data *data);
 void				ft_vars(t_data *in);
-void				print_stack(t_data data);
 int					ft_vars_main(t_data data);
 void				add_to_a(t_data *data);
 int					check_index(t_data *in);
+char				*get_next_line(int fd);
+char				*ft_strchr(const char *s, int c);
+char				*ft_strjoin_ft(char const *s1, char const *s2);
+void				ft_push_a_(t_data *pu);
+void				ft_push_b_(t_data *pu);
 
 #endif
