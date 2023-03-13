@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_utils.c                                    :+:      :+:    :+:   */
+/*   checker_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 22:56:50 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/12 22:58:33 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/13 17:45:07 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	ft_push_a_(t_data *pu)
+void	ft_push_a_bonus(t_data *pu)
 {
 	int		tmp;
 	int		tmp1;
@@ -28,7 +28,7 @@ void	ft_push_a_(t_data *pu)
 	pu->stack_b = tmp_next;
 }
 
-void	ft_push_b_(t_data *pu)
+void	ft_push_b_bonus(t_data *pu)
 {
 	int		tmp;
 	int		tmp1;
@@ -42,4 +42,20 @@ void	ft_push_b_(t_data *pu)
 	tmp_next = pu->stack_a->next;
 	free(pu->stack_a);
 	pu->stack_a = tmp_next;
+}
+
+void	ft_rr_bonus(t_data *rev)
+{
+	if (!ft_lstsize(rev->stack_b) || !ft_lstsize(rev->stack_a))
+		return ;
+	ft_rb(rev, 0);
+	ft_ra(rev, 0);
+}
+
+void	ft_rrr_bonus(t_data *rrev)
+{
+	if (!ft_lstsize(rrev->stack_a) || !ft_lstsize(rrev->stack_b))
+		return ;
+	ft_rra(rrev, 0);
+	ft_rrb(rrev, 0);
 }

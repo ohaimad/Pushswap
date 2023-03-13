@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions2.c                                    :+:      :+:    :+:   */
+/*   checker_utils_bonus2.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 18:20:12 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/12 18:14:10 by ohaimad          ###   ########.fr       */
+/*   Created: 2023/03/13 17:13:16 by ohaimad           #+#    #+#             */
+/*   Updated: 2023/03/13 17:42:26 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include"pushswap.h"
 
-void	ft_rra(t_data *rrev, int id)
+void	ft_rra_bonus(t_data *rrev, int id)
 {
 	t_list	*re;
 
-	if (!rrev->stack_a->next)
+	if (!ft_lstsize(rrev->stack_a))
 		return ;
 	re = rrev->stack_a;
 	while (re)
@@ -35,11 +35,11 @@ void	ft_rra(t_data *rrev, int id)
 		write(1, "rra\n", 4);
 }
 
-void	ft_rrb(t_data *rrev, int id)
+void	ft_rrb_bonus(t_data *rrev, int id)
 {
 	t_list	*re;
 
-	if (!rrev->stack_b->next)
+	if (!ft_lstsize(rrev->stack_b))
 		return ;
 	re = rrev->stack_b;
 	while (re)
@@ -58,18 +58,13 @@ void	ft_rrb(t_data *rrev, int id)
 		write(1, "rrb\n", 4);
 }
 
-void	ft_rrr(t_data *rrev)
-{
-	ft_rra(rrev, 0);
-	ft_rrb(rrev, 0);
-	write(1, "rrr\n", 4);
-}
-
-void	ft_swap(t_list **swp, int st)
+void	ft_swap_bonus(t_list **swp, int st)
 {
 	int	swap;
 	int	swap_in;
 
+	if (!ft_lstsize(*swp))
+		return ;
 	if ((*swp)->next == NULL)
 		return ;
 	swap = (*swp)->content;
@@ -84,8 +79,10 @@ void	ft_swap(t_list **swp, int st)
 		write(1, "sb\n", 3);
 }
 
-void	ft_ss(t_data *swp)
+void	ft_ss_bonus(t_data *swp)
 {
+    if (!ft_lstsize(swp->stack_b) || !ft_lstsize(swp->stack_a))
+		return ;
 	ft_swap(&swp->stack_a, 2);
 	ft_swap(&swp->stack_b, 2);
 	write(1, "ss\n", 3);

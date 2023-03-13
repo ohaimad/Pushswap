@@ -6,7 +6,7 @@
 /*   By: ohaimad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 00:53:58 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/03/12 22:55:51 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/03/12 18:12:45 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_ra(t_data *rev, int id)
 	t_list	*re;
 	t_list	*tmp;
 
-	if (!ft_lstsize(rev->stack_a))
+	if (!rev->stack_a->next)
 		return ;
 	re = rev->stack_a;
 	tmp = rev->stack_a->next;
@@ -75,7 +75,7 @@ void	ft_rb(t_data *rev, int id)
 	t_list	*re;
 	t_list	*tmp;
 
-	if (!ft_lstsize(rev->stack_b))
+	if (!rev->stack_b->next)
 		return ;
 	re = rev->stack_b;
 	tmp = rev->stack_b->next;
@@ -94,12 +94,9 @@ void	ft_rb(t_data *rev, int id)
 		write(1, "rb\n", 3);
 }
 
-void	ft_rr(t_data *rev, int id)
+void	ft_rr(t_data *rev)
 {
-	// if (!rev->stack_b->next)
-	// 	return ;
 	ft_rb(rev, 0);
 	ft_ra(rev, 0);
-	if (id == 1)
-		write(1, "rr\n", 3);
+	write(1, "rr\n", 3);
 }
